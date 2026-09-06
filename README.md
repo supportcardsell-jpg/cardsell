@@ -1,8 +1,10 @@
-# CardSell Node.js V1
-GitHub + Vercel starter for CardSell.
+# CardSell V5 — Vercel Build Fix
 
-Run locally: `npm install` then `npm run dev`.
+Clean Next.js starter for CardSell. Next.js/React versions are pinned for stable Vercel builds.
 
-This V1 is a frontend foundation only. Authentication, database, Gmail OTP, Admin requirements, gift-card transactions, electricity offer queue/locking, UPI/QR payouts, notifications and support will be connected in later versions.
+## Deploy
+1. Replace the existing GitHub repository files with these files.
+2. Commit changes.
+3. Vercel will automatically deploy the new commit.
 
-Important: do not put Gmail passwords, SMTP keys, database passwords or other secrets into GitHub. Use Vercel Environment Variables when backend integration is added.
+No database, SMTP credentials, or secrets are included.
