@@ -1,5 +1,27 @@
-# CardSell V7 — Flow Navigation Fix
-Home → Create Account → OTP → Dashboard
-Login → Dashboard
+# CardSell — Firebase OTP V3
 
-This is a UI/navigation test build. Real authentication, database and Gmail OTP are not connected yet.
+This version replaces PostgreSQL with Firebase Firestore.
+
+## Flow
+Create Account → Firestore user record → Gmail OTP → Verify → active account + session → Dashboard.
+
+## Firebase setup
+1. Create a Firebase project and enable **Firestore Database**.
+2. Open Project settings → Service accounts → Generate new private key.
+3. Add the three Firebase Admin values to Vercel Environment Variables:
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_CLIENT_EMAIL`
+   - `FIREBASE_PRIVATE_KEY`
+4. Add the Gmail SMTP values from `.env.example`.
+5. Use a Google **App Password** for `SMTP_PASS`; never commit it to GitHub.
+6. Deploy/redeploy on Vercel.
+
+## Firestore collections created by the app
+- `users`
+- `uniqueEmails`
+- `uniqueMobiles`
+- `otpChallenges`
+- `signupSessions`
+- `sessions`
+
+No PostgreSQL is required for this version.
