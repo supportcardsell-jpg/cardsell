@@ -1,1 +1,0 @@
-import "../../auth.css"; export default function Page(){return <main className="auth"><div className="authBox wide"><a href="/dashboard" className="back">← Dashboard</a><h1>Transaction History</h1><p>Your gift-card sales and electricity transactions will appear here.</p></div></main>}

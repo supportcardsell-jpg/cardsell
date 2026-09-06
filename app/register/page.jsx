@@ -1,2 +1,0 @@
-import Link from "next/link";
-export default function Register(){return <div style={{padding:40,fontFamily:"Arial"}}><Link href="/">← Back to Login</Link><h1>Create Account</h1><p>Registration page will be added next.</p></div>}
