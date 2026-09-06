@@ -1,0 +1,20 @@
+const stats=[["10,000+","Happy Users"],["4.8/5","User Rating"],["100%","Secure Platform"],["24/7","Customer Support"]];
+const brands=["Amazon","Flipkart","Myntra","BPCL","HPCL","Indian Oil","Croma","Reliance"];
+export default function Home(){
+ return <main>
+  <div className="tricolor"><span></span><span></span><span></span></div>
+  <header><div className="logo"><b>Card</b><strong>Sell</strong><small>Sell Gift Cards | Earn Instantly</small></div>
+   <nav><a href="#home">Home</a><a href="#how">How It Works</a><a href="#requirements">Requirements</a><a href="#brands">Gift Card Brands</a><a href="#benefits">Benefits</a></nav>
+   <div className="actions"><a className="login" href="/login">Login</a><a className="primary" href="/register">Create Account</a></div>
+  </header>
+  <section id="home" className="hero"><div className="heroText"><div className="eyebrow">🇮🇳 Made in India • Built for India • Trusted by Thousands</div><h1>Turn Your Gift Cards<br/><em>into Real Cash.</em></h1><p>Sell your gift cards securely and get paid directly to your UPI. Also discover exclusive electricity bill payment offers.</p><div className="heroBtns"><a className="primary big" href="/register">Start Selling Gift Cards →</a><a className="secondary big" href="#how">How It Works</a></div></div>
+   <div className="visual"><div className="card"><small>GIFTCARD</small><b>₹1,000</b><span>CardSell</span></div><div className="upi">↗ <b>UPI PAYMENT</b><small>Direct to your UPI</small></div></div>
+  </section>
+  <section className="stats">{stats.map(s=><div key={s[1]}><b>{s[0]}</b><span>{s[1]}</span></div>)}</section>
+  <section id="how" className="section"><div className="sectionHead"><span>HOW IT WORKS</span><h2>Simple. Fast. Secure.</h2><p>Everything is designed to make selling gift cards straightforward.</p></div><div className="steps">{[["01","Create Account","Register with your mobile number and Gmail."],["02","Check Requirements","See exactly which gift cards Admin currently needs."],["03","Submit Gift Card","Enter the card details and submit it for review."],["04","Get Paid","After verification, payment goes directly to your UPI."]].map(x=><div className="step" key={x[0]}><i>{x[0]}</i><h3>{x[1]}</h3><p>{x[2]}</p></div>)}</div></section>
+  <section id="requirements" className="darkSection"><div className="sectionHead"><span>LIVE REQUIREMENTS</span><h2>Sell only what we need.</h2><p>Admin controls active requirements. Users see only currently required gift cards.</p></div><div className="reqCard"><div><small>EXAMPLE REQUIREMENT</small><h3>Amazon Gift Card</h3><p>Admin required total <b>₹10,000</b></p></div><div className="progress"><div><b>₹0</b><span> / ₹10,000 received</span></div><hr/><small>Requirement will close automatically when fulfilled.</small></div></div></section>
+  <section id="brands" className="section"><div className="sectionHead"><span>ADMIN CONTROLLED</span><h2>Available Gift Cards</h2><p>Only brands with an active Admin requirement will appear to users.</p></div><div className="brandGrid">{brands.map(b=><div className="brand" key={b}>{b}</div>)}</div></section>
+  <section id="benefits" className="section benefits"><div><span>WHY CARDSELL</span><h2>Built around trust.</h2><p>Direct UPI payouts, clear requirements, transaction history and review-based fraud controls.</p></div><div className="benefitGrid">{["Direct UPI / QR payouts","Requirement-based selling","Transparent order status","Fraud warning & admin review","Electricity bill offers","Support & dispute tickets"].map(x=><div key={x}>✓ <b>{x}</b></div>)}</div></section>
+  <footer><div className="logo"><b>Card</b><strong>Sell</strong><small>Sell Gift Cards | Earn Instantly</small></div><p>© 2026 CardSell. Made in India.</p><div><a href="/login">Login</a> · <a href="/register">Create Account</a> · Privacy · Terms · Support</div></footer>
+ </main>
+}
