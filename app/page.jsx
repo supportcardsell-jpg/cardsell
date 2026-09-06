@@ -1,24 +1,23 @@
-import Link from "next/link";
 import "./styles.css";
-export default function Login(){
+export default function OTP(){
  return <main className="page">
   <div className="flag"><span></span><span></span><span></span></div>
   <section className="shell">
-   <Link href="/" className="logo"><b>₹</b><div><strong>CardSell</strong><small>Sell Gift Cards • Earn Instantly</small></div></Link>
+   <a className="logo" href="/"><b>₹</b><div><strong>CardSell</strong><small>Sell Gift Cards • Earn Instantly</small></div></a>
    <div className="card">
+    <div className="icon">✉</div>
     <div className="badge">🇮🇳 MADE IN INDIA</div>
-    <h1>Welcome Back</h1>
-    <p className="sub">Sign in to continue to your CardSell account.</p>
-    <form>
-      <label>Gmail Address</label>
-      <input type="email" placeholder="you@gmail.com"/>
-      <label>Password</label>
-      <div className="pass"><input id="password" type="password" placeholder="Enter your password"/><button type="button" onClick={()=>{const x=document.getElementById("password");x.type=x.type==="password"?"text":"password"}}>Show</button></div>
-      <div className="row"><label className="remember"><input type="checkbox"/> Remember me</label><a href="#">Forgot Password?</a></div>
-      <button className="login" type="submit">Login <span>→</span></button>
-    </form>
-    <div className="or"><i></i><span>Secure access</span><i></i></div>
-    <p className="signup">Don't have an account? <Link href="/register">Create Account</Link></p>
+    <h1>Verify Your Gmail</h1>
+    <p className="sub">We've sent a 6-digit verification code to<br/><strong>yourname@gmail.com</strong></p>
+    <label className="title">Enter OTP</label>
+    <div className="otp">
+      <input maxLength="1" inputMode="numeric"/><input maxLength="1" inputMode="numeric"/><input maxLength="1" inputMode="numeric"/><input maxLength="1" inputMode="numeric"/><input maxLength="1" inputMode="numeric"/><input maxLength="1" inputMode="numeric"/>
+    </div>
+    <button className="verify">Verify OTP <span>→</span></button>
+    <div className="timer">Resend OTP in <strong>00:45</strong></div>
+    <button className="resend">Resend OTP</button>
+    <p className="change">Wrong email? <a href="/register">Change Gmail</a></p>
+    <div className="secure">🔒 Your verification code is private and should never be shared.</div>
    </div>
    <footer>© 2026 CardSell • Privacy • Terms • Support</footer>
   </section>
