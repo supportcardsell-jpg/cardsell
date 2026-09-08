@@ -25,3 +25,6 @@ Create Account → Firestore user record → Gmail OTP → Verify → active acc
 - `sessions`
 
 No PostgreSQL is required for this version.
+
+
+V6 fix: active OTP document ID is stored in signupSessions, avoiding composite Firestore query/index requirements during OTP verification and resend.

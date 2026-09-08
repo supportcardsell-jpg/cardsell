@@ -1,4 +1,5 @@
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { cookies } from "next/headers";
 import { db } from "../../../firebase";
 import { normalizeGmail, normalizeMobile, hashPassword, makeOtp, hash, makeToken, sendOtpEmail, jsonError } from "../../../lib";
 
@@ -38,7 +39,8 @@ export async function POST(request) {
     const otpRef = db.collection("otpChallenges").doc();
     const signupRef = db.collection("signupSessions").doc(hash(signupToken));
     await otpRef.set({ userId, email: gmail, otpHash: hash(otp), purpose: "signup", attempts: 0, verifiedAt: null, createdAt: FieldValue.serverTimestamp(), expiresAt: Timestamp.fromMillis(Date.now() + 10 * 60 * 1000) });
-    await signupRef.set({ userId, expiresAt: Timestamp.fromMillis(Date.now() + 15 * 60 * 1000), createdAt: FieldValue.serverTimestamp() });
+    // Store the active OTP document ID in the signup session. This avoids Firestore composite-index requirements during verification.
+    await signupRef.set({ userId, otpId: otpRef.id, expiresAt: Timestamp.fromMillis(Date.now() + 15 * 60 * 1000), createdAt: FieldValue.serverTimestamp() });
 
     try { await sendOtpEmail({ to: gmail, name, otp }); }
     catch (mailErr) {
