@@ -1,4 +1,4 @@
-# CardSell — Firebase OTP V3
+# CardSell — Firebase OTP V4 - Build Fix
 
 This version replaces PostgreSQL with Firebase Firestore.
 
