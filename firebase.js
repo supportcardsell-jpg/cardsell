@@ -1,5 +1,6 @@
 import { cert, getApps, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { getAuth } from "firebase-admin/auth";
 
 function required(name) {
   const value = process.env[name];
@@ -18,3 +19,4 @@ const app = getApps().length
     });
 
 export const db = getFirestore(app);
+export const firebaseAuth = getAuth(app);

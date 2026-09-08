@@ -31,3 +31,10 @@ V6 fix: active OTP document ID is stored in signupSessions, avoiding composite F
 \n\nV7: Pending/unverified accounts can restart verification from Create Account or Login. Active accounts remain protected from duplicate registration.\n
 ## Admin Panel
 Set `ADMIN_GMAIL` in Vercel to the Gmail address that should have admin access. The `/admin` page and admin APIs only allow the logged-in account matching this value.
+
+## Admin Firebase Authentication
+1. In Firebase Console → Authentication → Users, create the Admin user with the same Gmail as `ADMIN_GMAIL`.
+2. Email/Password provider must be enabled.
+3. In Firebase Console → Project settings → General, find the Web app configuration and copy its `apiKey` into Vercel as `FIREBASE_WEB_API_KEY`.
+4. Keep `FIREBASE_WEB_API_KEY` in Vercel Environment Variables. It is a Firebase web API key, not the Admin SDK private key.
+5. The Admin login is at `/admin/login` and uses a separate `cardsell_admin_session` cookie. Normal user login/OTP remains unchanged.
