@@ -28,3 +28,4 @@ No PostgreSQL is required for this version.
 
 
 V6 fix: active OTP document ID is stored in signupSessions, avoiding composite Firestore query/index requirements during OTP verification and resend.
+\n\nV7: Pending/unverified accounts can restart verification from Create Account or Login. Active accounts remain protected from duplicate registration.\n

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../auth.css";
 export default function Login(){
  const [gmail,setGmail]=useState("");const [password,setPassword]=useState("");const [error,setError]=useState("");const [loading,setLoading]=useState(false);
- const go=async(e)=>{e.preventDefault();setError("");setLoading(true);try{const r=await fetch("/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({gmail,password})});const d=await r.json();if(!r.ok)throw new Error(d.message||"Login failed.");window.location.href="/dashboard";}catch(err){setError(err.message)}finally{setLoading(false)}};
+ const go=async(e)=>{e.preventDefault();setError("");setLoading(true);try{const r=await fetch("/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({gmail,password})});const d=await r.json();if(!r.ok)throw new Error(d.message||"Login failed.");window.location.href=d.pending?"/otp?email="+encodeURIComponent(d.email):"/dashboard";}catch(err){setError(err.message)}finally{setLoading(false)}};
  return <main className="auth"><div className="authBox">
   <a href="/" className="back">← CardSell</a><h1>Welcome Back</h1><p>Sign in to continue to your account.</p>
   <form onSubmit={go}>
